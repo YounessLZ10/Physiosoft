@@ -1,0 +1,34 @@
+﻿@model IEnumerable<Physiosoft.DTO.User.UserUtilDTO>
+
+@{
+    ViewData["Title"] = "User Index";
+}
+
+<h1 class="mb-4">User List</h1>
+
+<p>
+    <a class="btn btn-primary" asp-action="Create">Create New</a>
+</p>
+<div asp-validation-summary="ModelOnly" class="text-danger"></div>
+
+<div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-3">
+    @foreach (var item in Model)
+    {
+        <div class="col mb-4">
+            <div class="card h-100">
+                <div class="card-body">
+                    <h5 class="card-title">@Html.DisplayFor(modelItem => item.Username)</h5>
+                    <p class="card-text">@Html.DisplayFor(modelItem => item.Email)</p>
+                    <p class="card-text">@Html.DisplayFor(modelItem => item.IsAdmin)</p>
+                </div>
+                <div class="card-footer">
+                    <div class="btn-group" role="group" aria-label="Actions">
+                        <a class="btn btn-info btn-sm" asp-action="Details" asp-route-id="@item.UserId">Details</a>
+                        <a class="btn btn-warning btn-sm" asp-action="Edit" asp-route-id="@item.UserId">Edit</a>
+                        <a class="btn btn-danger btn-sm" asp-action="Delete" asp-route-id="@item.UserId">Delete</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    }
+</div>

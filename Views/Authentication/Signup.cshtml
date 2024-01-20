@@ -1,0 +1,65 @@
+﻿@model Physiosoft.DTO.User.UserSignupDTO
+@{
+    Layout = null;
+    ViewData["Title"] = "Signup";
+}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="~/css/Signup.css" />
+    <title>Signup</title>
+
+</head>
+<body class="bg-light" style="background-image: url('../../wwwroot/images/font.jpg'); background-size: cover; background-position: center; background-repeat: no-repeat;">
+
+    <div class="container">
+        <div class="row justify-content-center align-items-center vh-100">
+            <div class="col-md-6">
+                <form class="card p-4 shadow" asp-controller="Authentication" asp-action="Signup" method="Post">
+                    <h3 class="text-center mb-4">Create Account</h3>
+                    <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                    <div class="mb-3">
+                        <label for="email" class="form-label">Email</label>
+                        <input type="email" class="form-control" name="email" id="email" placeholder="Enter your email">
+                    </div>
+                    <div class="mb-3">
+                        <label for="username" class="form-label">Username</label>
+                        <input type="text" class="form-control" name="username" id="username" placeholder="Choose a username">
+                    </div>
+                    <div class="mb-3">
+                        <label for="password" class="form-label">Password</label>
+                        <input type="password" class="form-control" name="password" id="password" placeholder="Enter your password">
+                    </div>
+                    <div class="d-grid mb-3">
+                        <button type="submit" class="btn btn-primary btn-block">Signup</button>
+                    </div>
+                </form>
+                <div class="text-center">
+                    <p class="mt-3">Already have an account? <a href="~/Authentication/Login" class="custom-link">Login</a></p>
+                </div>
+
+                <div class="text-center mt-4">
+                    @if (ViewData["ErrorsArray"] != null)
+                    {
+                        var errorsArray = ViewData["ErrorsArray"] as List<Error>;
+                        @if (errorsArray is not null)
+                        {
+                            @foreach (var error in errorsArray)
+                            {
+                                <div class="text-danger">
+                                    <p>@error.Message</p>
+                                </div>
+                            }
+                        }
+                    }
+                </div>
+            </div>
+        </div>
+    </div>
+
+</body>
+</html>

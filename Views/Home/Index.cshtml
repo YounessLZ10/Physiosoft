@@ -1,0 +1,134 @@
+﻿@{
+    ViewData["Title"] = "Cabinet de Psychotérapie ";
+}
+
+<link href="~/css/typewriter.css" rel="stylesheet" />
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+
+<style>
+    body {
+        background-color: #f8f9fa;
+        font-family: 'Arial', sans-serif;
+        margin: 0;
+        padding: 0;
+        display: flex;
+        flex-direction: column;
+        min-height: 100vh;
+    }
+
+    .typewriter {
+        margin-top: 100px;
+        text-align: center;
+        color: #343a40;
+    }
+
+        .typewriter h1 {
+            font-size: 3em;
+            margin-bottom: 20px;
+            letter-spacing: 3px;
+            color: #007bff;
+        }
+
+        .typewriter p {
+            font-size: 1.5em;
+            margin-bottom: 30px;
+            color: #6c757d;
+        }
+
+    .photo-gallery {
+        position: relative;
+        max-width: 100%;
+        margin: auto;
+        overflow: hidden;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        border-radius: 8px;
+    }
+
+    .photo {
+        display: none;
+    }
+
+        .photo img {
+            width: 100%;
+            height: auto;
+            border-radius: 8px;
+        }
+
+        .photo.active {
+            display: block;
+        }
+
+    .row {
+        position: relative;
+    }
+</style>
+
+<div class="container-fluid">
+    <div class="row justify-content-center">
+        <div class="col-md-8">
+            <div class="text-center typewriter">
+                <h1>Bienvenue au Cabinet de Psychotérapie </h1>
+                <p>Votre espace pour le bien-être émotionnel.</p>
+            </div>
+        </div>
+    </div>
+
+    <div class="row justify-content-center">
+        <div class="col-md-8">
+            <div class="photo-gallery">
+                <div class="photo active">
+                    <img src="https://runwayhealth.ca/wp-content/uploads/2021/07/Physiotherapy-for-the-knee.jpg" alt="Photo 1" class="img-fluid">
+                </div>
+                <div class="photo">
+                    <img src="https://portlandwellnesscare.com/wp-content/uploads/2022/08/how-effective-is-physiotherapy.jpg" alt="Photo 2" class="img-fluid">
+                </div>
+                <!-- Add more photos as needed -->
+            </div>
+        </div>
+    </div>
+
+    <div class="row justify-content-center">
+        <div class="col-md-8">
+            <p>
+                Notre cabinet offre un environnement chaleureux et discret, propice à l'introspection et à la croissance personnelle. Nous croyons en la confidentialité et le respect mutuel, créant ainsi un lieu où vous pouvez vous sentir en sécurité pour explorer les aspects les plus profonds de vous-même.
+            </p>
+            <p>
+                La décision de chercher de l'aide est le premier pas vers le changement. Si vous cherchez un accompagnement professionnel pour votre bien-être mental, n'hésitez pas à nous contacter.
+            </p>
+        </div>
+    </div>
+</div>
+
+<footer class="footer text-muted">
+    <div class="container">
+        &copy; @DateTime.Now.Year - Cabinet de Psychotérapie  -
+        <a asp-area="" asp-controller="Home" asp-action="Privacy">Confidentialité</a> -
+        <a asp-area="" asp-controller="Authentication" asp-action="Signup">Inscription</a> -
+        <a asp-area="" asp-controller="Authentication" asp-action="Login">Connexion</a>
+    </div>
+</footer>
+
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+<script>
+    document.addEventListener("DOMContentLoaded", function () {
+        const photos = document.querySelectorAll(".photo");
+        let currentPhoto = 0;
+
+        function showPhoto(index) {
+            photos.forEach((photo, i) => {
+                photo.classList.remove("active");
+                if (i === index) {
+                    photo.classList.add("active");
+                }
+            });
+        }
+
+        function nextPhoto() {
+            currentPhoto = (currentPhoto + 1) % photos.length;
+            showPhoto(currentPhoto);
+        }
+
+        setInterval(nextPhoto, 5000); // Change photo every 5 seconds
+    });
+</script>

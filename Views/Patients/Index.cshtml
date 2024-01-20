@@ -1,0 +1,35 @@
+﻿@model IEnumerable<Physiosoft.Data.Patient>
+
+@{
+    ViewData["Title"] = "Patient Index";
+}
+
+<h1 class="mb-4">Patient List</h1>
+
+<p>
+    <a class="btn btn-primary" asp-action="Create">Create New</a>
+</p>
+<div asp-validation-summary="ModelOnly" class="text-danger"></div>
+
+<div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-3">
+    @foreach (var item in Model)
+    {
+        <div class="col mb-4">
+            <div class="card h-100">
+                <div class="card-body">
+                    <h5 class="card-title">@Html.DisplayFor(modelItem => item.Firstname) @Html.DisplayFor(modelItem => item.Lastname)</h5>
+                    <p class="card-text">@Html.DisplayFor(modelItem => item.PatientIssue)</p>
+                    <p class="card-text">@Html.DisplayFor(modelItem => item.Telephone)</p>
+                    <p class="card-text">@Html.DisplayFor(modelItem => item.Email)</p>
+                </div>
+                <div class="card-footer">
+                    <div class="btn-group" role="group" aria-label="Actions">
+                        <a class="btn btn-info btn-sm" asp-action="Details" asp-route-id="@item.PatientId">Details</a>
+                        <a class="btn btn-warning btn-sm" asp-action="Edit" asp-route-id="@item.PatientId">Edit</a>
+                        <a class="btn btn-danger btn-sm" asp-action="Delete" asp-route-id="@item.PatientId">Delete</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    }
+</div>

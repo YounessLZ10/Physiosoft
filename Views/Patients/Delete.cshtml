@@ -1,0 +1,58 @@
+﻿@model Physiosoft.Data.Patient
+
+@{
+    ViewData["Title"] = "Delete";
+}
+
+<h1 class="mb-4">Delete</h1>
+
+<h3>Are you sure you want to delete this?</h3>
+
+<div class="card">
+    <div class="card-body">
+        <h4 class="card-title">Patient Information</h4>
+        <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+        <hr />
+
+        <dl class="row">
+            <dt class="col-sm-3">First Name:</dt>
+            <dd class="col-sm-9">@Html.DisplayFor(model => model.Firstname)</dd>
+
+            <dt class="col-sm-3">Last Name:</dt>
+            <dd class="col-sm-9">@Html.DisplayFor(model => model.Lastname)</dd>
+
+            <dt class="col-sm-3">Telephone:</dt>
+            <dd class="col-sm-9">@Html.DisplayFor(model => model.Telephone)</dd>
+
+            <dt class="col-sm-3">Address:</dt>
+            <dd class="col-sm-9">@Html.DisplayFor(model => model.Address)</dd>
+
+            <dt class="col-sm-3">Num dossier:</dt>
+            <dd class="col-sm-9">@Html.DisplayFor(model => model.Vat)</dd>
+
+            <dt class="col-sm-3">CNSS:</dt>
+            <dd class="col-sm-9">@Html.DisplayFor(model => model.Ssn)</dd>
+
+            
+
+            <dt class="col-sm-3">Notes:</dt>
+            <dd class="col-sm-9">@Html.DisplayFor(model => model.Notes)</dd>
+
+            <dt class="col-sm-3">Email:</dt>
+            <dd class="col-sm-9">@Html.DisplayFor(model => model.Email)</dd>
+
+            <dt class="col-sm-3">Reviewed:</dt>
+            <dd class="col-sm-9">@Html.DisplayFor(model => model.HasReviewed)</dd>
+
+            <dt class="col-sm-3">Patient Issue:</dt>
+            <dd class="col-sm-9">@Html.DisplayFor(model => model.PatientIssue)</dd>
+        </dl>
+    </div>
+    <div class="card-footer">
+        <form asp-action="Delete">
+            <input type="hidden" asp-for="PatientId" />
+            <button type="submit" class="btn btn-danger">Delete</button> |
+            <a class="btn btn-secondary" asp-action="Index">Back to List</a>
+        </form>
+    </div>
+</div>

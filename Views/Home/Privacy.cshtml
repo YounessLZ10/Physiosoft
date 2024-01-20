@@ -1,0 +1,67 @@
+﻿@{
+    ViewData["Title"] = "Privacy Policy";
+}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] - Physiosoft</title>
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/Physiosoft.styles.css" asp-append-version="true" />
+</head>
+<body>
+    <div class="container">
+        <main role="main" class="mt-5">
+            <h1>@ViewData["Title"]</h1>
+
+            <p>
+                Thank you for choosing Physiosoft. Your privacy is important to us. This Privacy Policy explains our practices regarding the collection, use, and disclosure of information that we receive through our website.
+            </p>
+
+            <h2>Information We Collect</h2>
+
+            <p>
+                We collect information you provide directly to us, such as your name, email address, and any other information you choose to provide. We may also collect information automatically as you navigate through the site.
+            </p>
+
+            <h2>How We Use Your Information</h2>
+
+            <p>
+                We use the information we collect to operate and maintain our website, communicate with you, send you updates and promotional content, and improve our services.
+            </p>
+
+            <h2>Sharing of Your Information</h2>
+
+            <p>
+                We do not sell, trade, or otherwise transfer your personal information to outside parties. This does not include trusted third parties who assist us in operating our website, conducting our business, or servicing you, as long as those parties agree to keep this information confidential.
+            </p>
+
+            <h2>Security</h2>
+
+            <p>
+                We take reasonable measures to help protect your personal information from unauthorized access, use, or disclosure.
+                If you have any questions about this Privacy Policy, please contact us at privacy@physiosoft.com.
+
+            </p>
+       <p></p>
+        </main>
+    </div>
+
+    <footer class="footer text-muted mt-auto">
+        <div class="container">
+            &copy; @DateTime.Now.Year - Physiosoft -
+            <a asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a> -
+            <a asp-area="" asp-controller="Authentication" asp-action="Signup">Sign Up</a> -
+            <a asp-area="" asp-controller="Authentication" asp-action="Login">Login</a>
+        </div>
+    </footer>
+
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="~/js/site.js" asp-append-version="true"></script>
+    <!-- You can include additional scripts here if needed -->
+</body>
+</html>

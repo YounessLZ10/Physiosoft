@@ -1,0 +1,34 @@
+﻿@model IEnumerable<Physiosoft.Data.Physio>
+
+@{
+    ViewData["Title"] = "Physio Index";
+}
+
+<h1 class="mb-4">Physiotherapists List</h1>
+
+<p>
+    <a class="btn btn-primary" asp-action="Create">Add New Physiotherapist</a>
+</p>
+
+<div asp-validation-summary="ModelOnly" class="text-danger"></div>
+
+<div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-3">
+    @foreach (var physio in Model)
+    {
+        <div class="col mb-4">
+            <div class="card h-100">
+                <div class="card-body">
+                    <h5 class="card-title">@Html.DisplayFor(modelItem => physio.Firstname) @Html.DisplayFor(modelItem => physio.Lastname)</h5>
+                    <p class="card-text">@Html.DisplayFor(modelItem => physio.Telephone)</p>
+                </div>
+                <div class="card-footer">
+                    <div class="btn-group" role="group" aria-label="Actions">
+                        <a class="btn btn-info btn-sm" asp-action="Details" asp-route-id="@physio.PhysioId">Details</a>
+                        <a class="btn btn-warning btn-sm" asp-action="Edit" asp-route-id="@physio.PhysioId">Edit</a>
+                        <a class="btn btn-danger btn-sm" asp-action="Delete" asp-route-id="@physio.PhysioId">Delete</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    }
+</div>

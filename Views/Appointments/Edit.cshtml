@@ -1,0 +1,79 @@
+﻿@model Physiosoft.Data.Appointment
+
+@{
+    ViewData["Title"] = "Edit";
+}
+
+<h1>Edit</h1>
+
+<h4>Appointment</h4>
+<hr />
+<div class="row">
+    <div class="col-md-6 offset-md-3 content-area">
+        <form asp-action="Edit">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="AppointmentID" />
+
+            <div class="form-group">
+                <label asp-for="PatientID" class="form-label"></label>
+                <select asp-for="PatientID" class="form-control" asp-items="ViewBag.PatientID"></select>
+                <span asp-validation-for="PatientID" class="text-danger"></span>
+            </div>
+
+            <div class="form-group">
+                <label asp-for="PhysioID" class="form-label"></label>
+                <select asp-for="PhysioID" class="form-control" asp-items="ViewBag.PhysioID"></select>
+                <span asp-validation-for="PhysioID" class="text-danger"></span>
+            </div>
+
+            <div class="mb-3">
+                <label asp-for="AppointmentDate" class="form-label"></label>
+                <input asp-for="AppointmentDate" class="form-control" />
+                <span asp-validation-for="AppointmentDate" class="text-danger"></span>
+            </div>
+
+            <div class="mb-3">
+                <label asp-for="DurationMinutes" class="form-label"></label>
+                <input asp-for="DurationMinutes" class="form-control" />
+                <span asp-validation-for="DurationMinutes" class="text-danger"></span>
+            </div>
+
+            <div class="mb-3">
+                <label asp-for="AppointmentStatus" class="form-label"></label>
+                <select asp-for="AppointmentStatus" class="form-control">
+                    <option value="Scheduled">Scheduled</option>
+                    <option value="Canceled">Canceled</option>
+                </select>
+                <span asp-validation-for="AppointmentStatus" class="text-danger"></span>
+            </div>
+
+
+            <div class="mb-3">
+                <label asp-for="Notes" class="form-label"></label>
+                <input asp-for="Notes" class="form-control" />
+                <span asp-validation-for="Notes" class="text-danger"></span>
+            </div>
+
+            <div class="mb-3">
+                <label asp-for="PatientIssuse" class="form-label"></label>
+                <input asp-for="PatientIssuse" class="form-control" />
+                <span asp-validation-for="PatientIssuse" class="text-danger"></span>
+            </div>
+
+            <div class="mb-3 form-check">
+                <input class="form-check-input" asp-for="HasScans" />
+                <label class="form-check-label" asp-for="HasScans">@Html.DisplayNameFor(model => model.HasScans)</label>
+            </div>
+
+            <div class="mb-3">
+                <input type="submit" value="Save" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+
+<script src="~/js/appointments.js"></script>
